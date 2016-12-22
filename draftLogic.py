@@ -22,6 +22,7 @@ def scrapeUserCollection():
 def selectRarity(pickCount):
     draftRarity = " "
     rarityNumber = random.randint(1,100)
+    #83% RARE, 13% EPIC, 4% LEGENDARY
     if pickCount == 1 or pickCount == 10 or pickCount == 20 or pickCount == 30:
         if rarityNumber < 83:
             draftRarity = "RARE"
@@ -29,6 +30,7 @@ def selectRarity(pickCount):
             draftRarity = "EPIC"
         else:
             draftRarity = "LEGENDARY"
+    #76% COMMON, 20% RARE, 3% EPIC, 1% LEGENDARY
     else:
         if rarityNumber < 77:
             draftRarity = "COMMON"
@@ -36,10 +38,17 @@ def selectRarity(pickCount):
             draftRarity = "RARE"
         elif rarityNumber > 96 and rarityNumber <= 99:
             draftRarity = "EPIC"
-        else:
+        elif rarityNumber == 100:
             draftRarity = "LEGENDARY"
     return draftRarity
 
-def selectClass():
+
+def selectClass(chosenClass):
+    cardClass = " "
     classNumber = random.randint(0,100)
+    if classNumber < 67:
+        cardClass = chosenClass
+    else:
+        cardClass = "NEUTRAL"
+    return cardClass
     
