@@ -29,7 +29,7 @@ def selectRarity(pickCount):
 
 
 def selectClass(chosenClass):
-    cardClass = " "
+    cardClass = ""
     classNumber = random.randint(0,100)
     if classNumber < 67:
         cardClass = chosenClass
@@ -37,37 +37,13 @@ def selectClass(chosenClass):
         cardClass = 12 # NEUTRAL
     return cardClass
 
-def chooseClass():
-    classOptions = random.sample(range(1,9), 3)
-    for i in range(len(classOptions)):
-        if classOptions[i] == 1:
-            classOptions[i] = 2 # DRUID
-        elif classOptions[i] == 2:
-            classOptions[i] = 3 # HUNTER
-        elif classOptions[i] == 3:
-            classOptions[i] = 4 # MAGE
-        elif classOptions[i] == 4:
-            classOptions[i] = 5 # PALADIN
-        elif classOptions[i] == 5:
-            classOptions[i] = 6 # PRIEST
-        elif classOptions[i] == 6:
-            classOptions[i] = 7 # ROGUE
-        elif classOptions[i] == 7:
-            classOptions[i] = 8 # SHAMAN
-        elif classOptions[i] == 8:
-            classOptions[i] = 9 # WARLOCK
-        elif classOptions[i] == 9:
-            classOptions[i] = 10 # WARRIOR
-    return classOptions
+classOptions = random.sample(range(2,10), 3)
+for i in range(len(classOptions)):
+    classOptions[i] = CardClass(classOptions[i])
 
-classOptions = chooseClass()    
-print(CardClass(classOptions[0]))
-print(CardClass(classOptions[1]))
-print(CardClass(classOptions[2]))
+print(classOptions)
 chosenClass = (classOptions[int(input())])
-print('You chose: ' + str(CardClass(chosenClass)))
-
-
+print(chosenClass)
 
 ##while pickNumber <= 30:
 ##    draftRarity = selectRarity(pickNumber)
